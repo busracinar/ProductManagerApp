@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ProductApp.Models.Product>
+<h1>Ürün Listesi</h1>
+<hr />
+<p>
+    <a asp-action="Create" class="btn btn-primary">Yeni Ürün Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th width="30">
+                No
+            </th>
+            <th width="200">
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th width="250">
+                @Html.DisplayNameFor(model => model.Desciription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th width="200">
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th width="50">
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th width="400"></th>
+        </tr>
+    </thead>
+    @{ int sayac = 1;}
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @sayac
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desciription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td >
+                    @{
+                        if (!String.IsNullOrEmpty(item.Image))
+                        {
+                            <img src="~/images/@item.Image" asp-append-version="true" class="img-thumbnail" />
+                        }
+                        else
+                        {
+                            <img src="~/images/noimage.png" asp-append-version="true" class="img-thumbnail" />
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Güncelle</a> 
+                    <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-sm btn-warning">Detay</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id"class="btn btn-sm btn-danger">Sil</a>
+                </td>
+            </tr>
+            sayac++;
+        }
+    </tbody>
+</table>

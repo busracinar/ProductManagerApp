@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProductApp</title>
+    <link href="~/theme/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/theme/css/shop-homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">BÜŞRA ÇINAR</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">
+                            Anasayfa
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Product" asp-action="Index" class="nav-link">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-lg-2">
+                @await Component.InvokeAsync("Menu")
+            </div>
+            <div class="col-lg-10">
+                @RenderBody()
+            </div>
+        </div>
+
+    </div>
+    <footer class=" bg-dark fixed-bottom">
+        <div class="container">
+            <p class="m-0 text-center text-white">Büşra Çınar &copy; 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <script src="~/theme/vendor/jquery/jquery.min.js"></script>
+    <script src="~/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/theme/plugins/chart.js/Chart.min.js"></script>
+    <script src="~/theme/plugins/sparklines/sparkline.js"></script>
+    <script src="~/theme/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/theme/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="~/theme/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <script src="~/theme/plugins/moment/moment.min.js"></script>
+    <script src="~/theme/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/theme/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="~/theme/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="~/theme/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="~/theme/dist/js/adminlte.js"></script>
+    <script src="~/theme/dist/js/pages/dashboard.js"></script>ü
+    <script src="~/theme/dist/js/demo.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

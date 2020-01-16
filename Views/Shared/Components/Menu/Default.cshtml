@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProductApp.Models.Menu>
+
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        @{
+            var a = Model.Where(x => x.UstMenuId == 0).OrderBy(x => x.SiraNo);
+        }
+        @foreach (var item in a)
+        {
+            <li class="nav-item has-treeview menu-open">
+                <a asp-controller="@item.Controller" asp-action="@item.Action" class="nav-link">
+                    <b>
+                        @Html.Raw(item.Description)
+                        @item.MenuAdi
+                    </b>
+
+                </a>
+                <ul class="nav nav-treeview">
+                    @{
+                        var b = Model.Where(x => x.UstMenuId == item.MenuId).OrderBy(x => x.SiraNo);
+                    }
+                    @foreach (var item2 in b)
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="@item2.Controller" asp-action="@item2.Action" class="nav-link">
+                                @Html.Raw(item2.Description)
+                                @item2.MenuAdi
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</nav>
