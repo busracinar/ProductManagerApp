@@ -1,4 +1,7 @@
-# ProductManagerApp
-ASP . NET Core Web Application - Product Manager App
+# Product Manager WebSite
 
-https://github.com/busracinar/ProductManagerApp/blob/master/wwwroot/images/product.PNG
+
+![output](https://github.com/busracinar/ProductManagerApp/blob/master/wwwroot/images/product.PNG)
+
+![output](https://github.com/busracinar/ProductManagerApp/blob/master/wwwroot/images/product2.PNG)
+
